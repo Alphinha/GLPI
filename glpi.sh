@@ -61,7 +61,7 @@ HORAINICIAL=$(date +%T)
 # opção do shell script: aspas simples ' ' = Protege uma string completamente (nenhum caractere é especial)
 # opção do shell script: aspas duplas " " = Protege uma string, mas reconhece $, \ e ` como especiais
 # opção do shell script: $() = Executa comandos numa subshell, retornando o resultado
-#USUARIO=$(id -u)
+USUARIO=$(id -u)
 UBUNTU=$(lsb_release -rs)
 KERNEL=$(uname -r | cut -d'.' -f1,2)
 #
@@ -95,7 +95,7 @@ export DEBIAN_FRONTEND="noninteractive"
 # Verificando se o usuário é Root, Distribuição é >=18.04 e o Kernel é >=4.15 <IF MELHORADO)
 # [ ] = teste de expressão, && = operador lógico AND, == comparação de string, exit 1 = A maioria dos erros comuns na execução
 clear
-if [ "$UBUNTU" == "18.04" ] && [ "$KERNEL" == "4.15" ]
+if [ "$USUARIO" == "0" ] && [ "$UBUNTU" >= "18.04" ] && [ "$KERNEL" >= "4.15" ]
 	then
 		echo -e "O usuário é Root, continuando com o script..."
 		echo -e "Distribuição é >=18.04.x, continuando com o script..."
